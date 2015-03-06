@@ -18,11 +18,6 @@ def encode_basename_ascii(value):
     >>> print(encode_basename_ascii(u'éà'))
     ea
 
-    Spaces are converted to underscores.
-
-    >>> print(encode_basename_ascii(' '))
-    _
-
     Of course, ASCII values are not modified.
 
     >>> print(encode_basename_ascii('ea'))
@@ -37,7 +32,7 @@ def encode_basename_ascii(value):
     ascii_basename = unicodedata.normalize('NFKD', ascii_basename)
     ascii_basename = ascii_basename.encode('ascii', 'ignore')
     ascii_basename = ascii_basename.decode('ascii')
-    ascii_basename = re.sub(r'[\s]', '_', ascii_basename)
+    #ascii_basename = re.sub(r'[\s]', '_', ascii_basename) #removing underscores
     return ascii_basename
 
 
